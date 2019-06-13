@@ -5,6 +5,8 @@ import {handleFetchErrors, writeCoursesErrToConsole} from './utils';
 import MOCK_DATA from './assets/mock_data/courses.json';
 import AppWrapper from './views/AppWrapper';
 import CoursesGrid from './views/CoursesGrid';
+import CartView from './views/Cart';
+import './App.css';
 
 
 class App extends React.Component {
@@ -35,9 +37,9 @@ class App extends React.Component {
         console.info(this.state);
         return (
             <AppWrapper>
-                <Row>
+                <Row id='App'>
                     <Col 
-                        sm={{span: 10, order: 1}}
+                        sm={{span: 9, order: 1}}
                         xs={{span: 12, order: 12}}
                     >
                         <CoursesGrid
@@ -46,10 +48,12 @@ class App extends React.Component {
                         />
                     </Col>
                     <Col 
-                        sm={{span: 2, order: 12}}
+                        sm={{span: 3, order: 12}}
                         xs={{span: 12, order: 1}}
                     >
-                        CartView
+                        <CartView
+                            SelectedCourses={this.state.SelectedCourses}
+                        />
                     </Col>
                 </Row>
             </AppWrapper>
