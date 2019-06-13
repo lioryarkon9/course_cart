@@ -7,6 +7,11 @@ const CoursesGrid = props => {
     return (
         <Container id='CoursesGrid'>
             <Row>
+                <Col>
+                    SearchArea
+                </Col>
+            </Row>
+            <Row>
                 {props.AllCourses.map(item => (
                     <SingleCourse
                         key={'_' + item.id}
