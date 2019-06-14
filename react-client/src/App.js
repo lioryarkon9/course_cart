@@ -1,12 +1,11 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container, Row, Col} from 'react-bootstrap';
-import {handleFetchErrors, writeCoursesErrToConsole} from './utils';
-import MOCK_DATA from './assets/mock_data/courses.json';
 import AppWrapper from './views/AppWrapper';
 import CoursesGrid from './views/CoursesGrid';
 import CartView from './views/Cart';
 import './App.css';
+import WithLogic from './AppLogic/WithLogic';
 
 
 class App extends React.Component {
@@ -16,27 +15,20 @@ class App extends React.Component {
             AllCourses: [],
             SelectedCourses: []
         }
+        this.setCourses = this.props.setCourses.bind(this);
+        this.getCoursees = this.props.getCoursees.bind(this);
+        this.addToSelected = this.props.addToSelected.bind(this);
+        this.removeFromSelected = this.props.removeFromSelected.bind(this);
     }
     componentDidMount () {
         this.setCourses();
     }
-    async setCourses () {
-        const Courses = await this.getCoursees();
-        this.setState({AllCourses: Courses});
-    }
-    getCoursees () {
-        return fetch('/get_courses')
-        .then(handleFetchErrors)
-        .then(httpRes => httpRes.json())
-        .catch(err => {
-            writeCoursesErrToConsole(err);
-            return MOCK_DATA;
-        })
-    }
     render () {
         console.info(this.state);
         return (
-            <AppWrapper>
+            <AppWrapper
+                numItemsInCart={this.state.SelectedCourses.length}
+            >
                 <Row id='App'>
                     <Col 
                         sm={{span: 9, order: 1}}
@@ -45,6 +37,8 @@ class App extends React.Component {
                         <CoursesGrid
                             AllCourses={this.state.AllCourses}
                             SelectedCourses={this.state.SelectedCourses}
+                            addToSelected={this.addToSelected}
+                            removeFromSelected={this.removeFromSelected}
                         />
                     </Col>
                     <Col 
@@ -61,4 +55,4 @@ class App extends React.Component {
     }
 }
 
-export default App;
+export default WithLogic(App);

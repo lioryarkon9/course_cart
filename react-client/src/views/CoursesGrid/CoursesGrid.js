@@ -20,6 +20,9 @@ const CoursesGrid = props => {
                         content={item.content}
                         price={item.price}
                         level={item.level}
+                        addToSelected={props.addToSelected}
+                        removeFromSelected={props.removeFromSelected}
+                        SelectedCourses={props.SelectedCourses}
                     />
                 ))}
             </Row>

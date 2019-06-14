@@ -1,3 +1,12 @@
 #AppWrapper #Header {
     background-color: #bbb9b9;
 }
+
+#Header #num-items {
+    background-color: #a29d9d;
+    width: 25px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
