@@ -13,12 +13,15 @@ class App extends React.Component {
         super(props);
         this.state = {
             AllCourses: [],
-            SelectedCourses: []
+            SelectedCourses: [],
+            searchValue: '',
+            searchOptions: []
         }
         this.setCourses = this.props.setCourses.bind(this);
         this.getCoursees = this.props.getCoursees.bind(this);
         this.addToSelected = this.props.addToSelected.bind(this);
         this.removeFromSelected = this.props.removeFromSelected.bind(this);
+        this.onChangeSearchInput = this.props.onChangeSearchInput.bind(this);
     }
     componentDidMount () {
         this.setCourses();
@@ -39,6 +42,9 @@ class App extends React.Component {
                             SelectedCourses={this.state.SelectedCourses}
                             addToSelected={this.addToSelected}
                             removeFromSelected={this.removeFromSelected}
+                            onChangeSearchInput={this.onChangeSearchInput}
+                            searchValue={this.state.searchValue}
+                            searchOptions={this.state.searchOptions}
                         />
                     </Col>
                     <Col 

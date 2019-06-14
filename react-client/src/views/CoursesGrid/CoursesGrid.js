@@ -4,15 +4,25 @@ import SingleCourse from '../../components/SingleCourse';
 
 
 const CoursesGrid = props => {
+    const AllCourses = props.AllCourses;
+    const SearchOptions = props.searchOptions;
+    const RelevantCourseItems = (SearchOptions.length > 0 && SearchOptions.length < AllCourses.length) ? SearchOptions : AllCourses;
     return (
         <Container id='CoursesGrid'>
             <Row>
                 <Col>
-                    SearchArea
+                    <div className='form-group'>
+                        <input 
+                            placeholder='Search Courses...'
+                            className='form-control'
+                            onChange={props.onChangeSearchInput}
+                            value={props.searchValue}
+                        />
+                    </div>
                 </Col>
             </Row>
             <Row>
-                {props.AllCourses.map(item => (
+                {RelevantCourseItems.map(item => (
                     <SingleCourse
                         key={'_' + item.id}
                         id={item.id}

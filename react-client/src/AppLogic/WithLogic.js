@@ -1,5 +1,10 @@
 import React from 'react';
-import {handleFetchErrors, writeCoursesErrToConsole, isObjectInList} from '../utils';
+import {
+    handleFetchErrors, 
+    writeCoursesErrToConsole, 
+    isObjectInList,
+    searchCourseByTitle
+} from '../utils';
 import MOCK_DATA from '../assets/mock_data/courses.json';
 
 
@@ -24,7 +29,7 @@ const WithLogic = App => {
             const RequestedObj = AllCourses.find(obj => obj.id === courseId);
             if (RequestedObj) {
                 if (!isObjectInList(courseId, SelectedCourses)) {
-                    let updatedSelected = SelectedCourses;
+                    let updatedSelected = Array.from(SelectedCourses);
                     updatedSelected.push(RequestedObj);
                     this.setState({SelectedCourses: updatedSelected});
                 } else {
@@ -36,11 +41,18 @@ const WithLogic = App => {
             const SelectedCourses = this.state.SelectedCourses;
             const RequestedObj = SelectedCourses.find(obj => obj.id === courseId);
             if (RequestedObj) {
-                const UpdatedSelected = Array.from(SelectedCourses).filter(item => item.id !== RequestedObj.id);
+                const UpdatedSelected = SelectedCourses.filter(item => item.id !== RequestedObj.id);
                 this.setState({SelectedCourses: UpdatedSelected});
             } else {
                 window.alert('cannot remove course not in cart');
             }
+        }
+        onChangeSearchInput (event) {
+            const input = event.currentTarget.value;
+            const AllCourses = Array.from(this.state.AllCourses);
+            this.setState({searchValue: input});
+            let searchResults = searchCourseByTitle(input, AllCourses);
+            this.setState({searchOptions: searchResults});
         }
         render () {
             return (
@@ -50,6 +62,7 @@ const WithLogic = App => {
                     getCoursees={this.getCoursees}
                     addToSelected={this.addToSelected}
                     removeFromSelected={this.removeFromSelected}
+                    onChangeSearchInput={this.onChangeSearchInput}
                 />
             );
         }

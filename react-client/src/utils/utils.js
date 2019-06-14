@@ -18,3 +18,16 @@ export function isObjectInList (objId, list) {
     if (RequestedObj) res = true;
     return res;
 }
+
+
+export function searchCourseByTitle (input, coursesList) {
+    if (!input) return [];
+    const lowerCasedInput = input.toLowerCase();
+    const regex = new RegExp(lowerCasedInput, 'g');
+    const SomeCourses = coursesList.filter(item => {
+        let isMatch = regex.test(item.title.toLowerCase());
+        return isMatch;
+    });
+
+    return SomeCourses.length === coursesList.length ? [] : SomeCourses;
+}
