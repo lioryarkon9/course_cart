@@ -11,8 +11,8 @@ const SingleCourse = props => {
             <Container className='CourseContainer'>
                 <Row>
                     <Col xs={12}>{props.title}</Col>
-                    <Col xs={12}>{props.content}</Col>
-                    <Col xs={12}>{props.price}$</Col>
+                    <Col xs={12} className='content'>{props.content}</Col>
+                    <Col xs={12}>Price: {props.price}$</Col>
                     <Container>
                         <Row className='d-flex justify-content-between'>
                             <Col xs={6}>

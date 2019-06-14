@@ -14,6 +14,10 @@
 .CourseContainer .add-course {
     margin-left: 2px;
 }
+.CourseContainer .content {
+    height: 10vh;
+    overflow: hidden;
+}
 
 @media only screen and (max-width: 600px) {
     .SingleCourse {

@@ -2,7 +2,7 @@
     {
         "id": 1,
         "title": "Title One",
-        "content": "content 1 adadadadd adada dagljf;ajfa asfja;jfejfajfa fafasfak afafafaf afdafafasf sdfaf fasfaf asfafafddaf",
+        "content": "content 1  sdfaf fasfaf asfafafddaf",
         "price": 10,
         "currency": "USD",
         "level": "mid-level"
@@ -10,7 +10,7 @@
     {
         "id": 2,
         "title": "Title Two",
-        "content": "content 2 adadadadd adada dagljf;ajfa asfja;jfejfajfa fafasfak afafafaf afdafafasf sdfaf fasfaf asfafafddaf",
+        "content": "content 2 adadadadd adada dagljf;ajfa asfja;jfejfajfa fafasfak afafafaf afdafafasf sdfaf fasfaf asfafafddaf adfaffafs adfafafafaf afafafafa dafafdasdfaf dfafaffafafasfafdasfafafadfafa fdasaf afasdf dfafa adadad adadad dasdadadd sadaddad dsadadadada adadad dadadada dasdadad dadadad dadadada",
         "price": 22,
         "currency": "USD",
         "level": "beginner"
@@ -18,7 +18,7 @@
     {
         "id": 3,
         "title": "Title Three",
-        "content": "content 3 adadadadd adada dagljf;ajfa asfja;jfejfajfa fafasfak afafafaf afdafafasf sdfaf fasfaf asfafafddaf",
+        "content": "content 3 adadadadd adada dagljf;ajfa asfja;jfejfajfa af fasfaf asfafafddaf",
         "price": 15,
         "currency": "USD",
         "level": "beginner"
@@ -26,7 +26,7 @@
     {
         "id": 4,
         "title": "Title Four",
-        "content": "content 4 adadadadd adada dagljf;ajfa asfja;jfejfajfa fafasfak afafafaf afdafafasf sdfaf fasfaf asfafafddaf",
+        "content": "content 4 ",
         "price": 20,
         "currency": "USD",
         "level": "advanced"
