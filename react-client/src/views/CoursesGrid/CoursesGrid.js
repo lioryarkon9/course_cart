@@ -1,6 +1,7 @@
 import React from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
 import SingleCourse from '../../components/SingleCourse';
+import {LEVEL, PRICE} from '../../consts';
 
 
 const CoursesGrid = props => {
@@ -18,6 +19,16 @@ const CoursesGrid = props => {
                             onChange={props.onChangeSearchInput}
                             value={props.searchValue}
                         />
+                    </div>
+                    <div className='form-group'>
+                        <label htmlFor="sort-by">Sort By</label>
+                        <select 
+                            onChange={e => props.sortCoursesByParam(e.currentTarget.value)}
+                            className="form-control" id="sort-by"
+                        >
+                            <option value={LEVEL}>level</option>
+                            <option value={PRICE}>price</option>
+                        </select>
                     </div>
                 </Col>
             </Row>

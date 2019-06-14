@@ -22,6 +22,7 @@ class App extends React.Component {
         this.addToSelected = this.props.addToSelected.bind(this);
         this.removeFromSelected = this.props.removeFromSelected.bind(this);
         this.onChangeSearchInput = this.props.onChangeSearchInput.bind(this);
+        this.sortCoursesByParam = this.props.sortCoursesByParam.bind(this);
     }
     componentDidMount () {
         this.setCourses();
@@ -45,6 +46,7 @@ class App extends React.Component {
                             onChangeSearchInput={this.onChangeSearchInput}
                             searchValue={this.state.searchValue}
                             searchOptions={this.state.searchOptions}
+                            sortCoursesByParam={this.sortCoursesByParam}
                         />
                     </Col>
                     <Col 
