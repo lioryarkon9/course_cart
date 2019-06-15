@@ -7,7 +7,8 @@ import {LEVEL, PRICE} from '../../consts';
 const CoursesGrid = props => {
     const AllCourses = props.AllCourses;
     const SearchOptions = props.searchOptions;
-    const RelevantCourseItems = (SearchOptions.length > 0 && SearchOptions.length < AllCourses.length) ? SearchOptions : AllCourses;
+    const SearchValue = props.searchValue;
+    const RelevantCourseItems = SearchValue ? SearchOptions : AllCourses;
     return (
         <Container id='CoursesGrid'>
             <Row>
@@ -19,6 +20,9 @@ const CoursesGrid = props => {
                             onChange={props.onChangeSearchInput}
                             value={props.searchValue}
                         />
+                    </div>
+                    <div className="form-text text-muted">
+                        {!RelevantCourseItems.length ? 'No matches' : null}
                     </div>
                 </Col>
                 <Col>
