@@ -7,7 +7,7 @@ import {
     sortObjectListByPrice,
     sortObjectListByLevel
 } from '../utils';
-import {PRICE, LEVEL, LOWEST_FIRST, HIGHEST_FIRST} from '../consts';
+import {PRICE, LEVEL} from '../consts';
 import MOCK_DATA from '../assets/mock_data/courses.json';
 
 
@@ -58,7 +58,7 @@ const WithLogic = App => {
             this.setState({searchOptions: searchResults});
         }
         sortCoursesByParam (sortParam) {
-            debugger;
+            if (!sortParam) return;
             const AllCourses = Array.from(this.state.AllCourses);
             const SearchOptions = Array.from(this.state.searchOptions);
             let sortedAllCourses, sortedSearchOptions;
@@ -66,17 +66,19 @@ const WithLogic = App => {
                 case PRICE:
                     sortedAllCourses = sortObjectListByPrice(AllCourses);
                     sortedSearchOptions = sortObjectListByPrice(SearchOptions);
-                    console.info(sortedAllCourses, sortedSearchOptions);
                     break;
                 case LEVEL:
                     sortedAllCourses = sortObjectListByLevel(AllCourses);
                     sortedSearchOptions = sortObjectListByLevel(SearchOptions);
-                    console.info(sortedAllCourses, sortedSearchOptions);
                     break;
                 default:
                     console.error('something went wrong sorting');
             }
-            
+
+            this.setState({
+                AllCourses: sortedAllCourses,
+                searchOptions: sortedSearchOptions
+            });
         }
         render () {
             return (

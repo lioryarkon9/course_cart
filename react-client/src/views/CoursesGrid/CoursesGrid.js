@@ -20,12 +20,14 @@ const CoursesGrid = props => {
                             value={props.searchValue}
                         />
                     </div>
+                </Col>
+                <Col>
                     <div className='form-group'>
-                        <label htmlFor="sort-by">Sort By</label>
                         <select 
                             onChange={e => props.sortCoursesByParam(e.currentTarget.value)}
                             className="form-control" id="sort-by"
                         >
+                            <option value="">sort by</option>
                             <option value={LEVEL}>level</option>
                             <option value={PRICE}>price</option>
                         </select>

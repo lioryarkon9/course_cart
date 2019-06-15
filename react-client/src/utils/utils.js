@@ -43,7 +43,7 @@ export function searchCourseByTitle (input, coursesList) {
     return SomeCourses.length === coursesList.length ? [] : SomeCourses;
 }
 
-export function sortObjectListByPrice (objectList, order = HIGHEST_FIRST) {
+export function sortObjectListByPrice (objectList, order = LOWEST_FIRST) {
     return objectList.sort((a, b) => {
         switch (order) {
             case LOWEST_FIRST:
@@ -52,7 +52,7 @@ export function sortObjectListByPrice (objectList, order = HIGHEST_FIRST) {
                 else return 0; // [1,1] -> [1,1]
             case HIGHEST_FIRST:
                 if (a[PRICE] > b[PRICE]) return -1; // [1,2] -> [2,1]
-                else if (a[PRICE] < b[PRICE]) return -1; // [2,1] -> [2,1]
+                else if (a[PRICE] < b[PRICE]) return 1; // [2,1] -> [2,1]
                 else return 0; // [1,1] -> [1,1]
             default:
                 return 0;
@@ -60,7 +60,7 @@ export function sortObjectListByPrice (objectList, order = HIGHEST_FIRST) {
     });
 }
 
-export function sortObjectListByLevel (objectList, order = HIGHEST_FIRST) {
+export function sortObjectListByLevel (objectList, order = LOWEST_FIRST) {
     const LevelMap = new Map();
     LevelMap.set(BEGINNER, 1);
     LevelMap.set(MID_LEVEL, 2);
@@ -79,4 +79,20 @@ export function sortObjectListByLevel (objectList, order = HIGHEST_FIRST) {
                 return 0;
         }
     });
+}
+
+export function getOppositeSortType (currentSortType) {
+    let res;
+    switch (currentSortType) {
+        case LOWEST_FIRST:
+            res = HIGHEST_FIRST;
+            break;
+        case HIGHEST_FIRST:
+            res = LOWEST_FIRST;
+            break;
+        default:
+            res = LOWEST_FIRST;
+    }
+
+    return res;
 }

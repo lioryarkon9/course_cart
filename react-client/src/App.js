@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Container, Row, Col} from 'react-bootstrap';
+import {Row, Col} from 'react-bootstrap';
 import AppWrapper from './views/AppWrapper';
 import CoursesGrid from './views/CoursesGrid';
 import CartView from './views/Cart';
