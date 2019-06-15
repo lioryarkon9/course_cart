@@ -31,7 +31,6 @@ class App extends React.Component {
         this.setCourses();
     }
     render () {
-        console.info(this.state);
         return (
             <AppWrapper
                 numItemsInCart={this.state.SelectedCourses.length}
