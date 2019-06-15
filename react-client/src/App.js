@@ -23,6 +23,9 @@ class App extends React.Component {
         this.removeFromSelected = this.props.removeFromSelected.bind(this);
         this.onChangeSearchInput = this.props.onChangeSearchInput.bind(this);
         this.sortCoursesByParam = this.props.sortCoursesByParam.bind(this);
+        this.prsistCartItemToLocalStorage = this.props.prsistCartItemToLocalStorage.bind(this);
+        this.removeCartItemFromLocalStorage = this.props.removeCartItemFromLocalStorage.bind(this);
+        this.getCartItemFromLocalStorage = this.props.getCartItemFromLocalStorage.bind(this);
     }
     componentDidMount () {
         this.setCourses();

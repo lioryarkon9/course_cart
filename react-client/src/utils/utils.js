@@ -96,3 +96,15 @@ export function getOppositeSortType (currentSortType) {
 
     return res;
 }
+
+export function isItemInLocalStorage (searchKey) {
+    let res = false;
+    for (let i = 0; i < window.localStorage.length; i++) {
+        if (window.localStorage.getItem(searchKey)) {
+            res = true;
+            break;
+        }
+    }
+
+    return res;
+}
